@@ -1,0 +1,2 @@
+# Linear_Congruential_Generator_PRNG
+Linear Congruential Generator Test
