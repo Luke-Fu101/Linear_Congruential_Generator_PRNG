@@ -1,23 +1,37 @@
 from LCG_Function import LCG
 import sys
-import random
-print("EXECUTIVE PYTHON PATH:", sys.executable)
 from rich.console import Console
-from rich.prompt import Prompt, IntPrompt
-from rich.panel import Panel
-from rich.table import Table
+from rich.prompt import Prompt
 
 console = Console()
 
-def Title():
-    console.clear
+def title():
+    console.clear()
     console.rule()
     console.print("[cyan]Linear Congruential Generator (LCG) Implementation[/cyan]", style="bold magenta")
     console.rule()
 
 def run_LCG():
-    Key = Prompt.ask("What is the desired key length?", default="128")
-    console.print("[dark blue]" + str(LCG(int(Key))) + "[/dark blue]", style="bold green")
+    key_length_input = Prompt.ask("What is the desired key length?", default="128")
+    return int(key_length_input)
 
-Title()
-run_LCG()
+def clean_key(raw_bit_list):
+    key_clean = ""
+    for bit in raw_bit_list:
+        key_clean = key_clean + str(bit)
+    return key_clean
+
+# 1. Display the UI Title
+title()
+
+# 2. Get the key length from the user
+chosen_key_length = run_LCG()
+
+# 3. Call the LCG function with the user's length and capture the generated list
+generated_bits = LCG(chosen_key_length)
+
+# 4. Convert the list of bits into a single contiguous string
+final_key_value = clean_key(generated_bits)
+
+# 5. Print out the final binary key string safely
+console.print(f"\n[bold green]Final Key Result:[/bold green] [dark_blue]{final_key_value}[/dark_blue]")
