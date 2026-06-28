@@ -17,3 +17,25 @@ The hardcoded parameters for this 32-bit implementation are:
 
 ## Project Purpose
 The purpose of this project is to generate a secure, pseudo-random bitstream of variable length to act as a key for symmetric encryption. By utilizing an entropy-seeded LCG, this tool produces balanced, chaotic binary sequences tailored for use in a stream cipher.
+
+## Getting Started
+
+### Clone the Repository
+```bash
+git clone https://github.com/Luke-Fu101/Linear_Congruential_Generator_PRNG.git
+cd Linear_Congruential_Generator_PRNG
+```
+
+### Install Dependencies
+Create and activate a virtual environment, then install the required packages:
+```bash
+python3 -m venv LCG_Venv
+source LCG_Venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Run the Project
+```bash
+python src/main.py
+```
+You will be prompted to enter a desired key length. The generator will output a pseudo-random binary key of that length.

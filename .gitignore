@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+
+LCG_Venv/
+
+.vscode/
